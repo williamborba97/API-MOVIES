@@ -1,14 +1,30 @@
+const {hash,compare} = require ("bcryptjs");
 const AppError = require ("../utils/appError");
+const knex = require("../database/knex")
 
 class UsersControllers{
-    create (request,response){
+   async create (request,response){
         const {name,email,password} = request.body;
 
         if(!name || !email){
             throw new AppError("É necessario preencher todos os campos obrigatorios.");
         }
+
+        const hashedPassword = hash(password,8);
+         await knex("users").insert({
+            name,
+            email,
+            hashedPassword
+        });
+
+        
+
+        
+        
+
+        
     
-        response.json({name,email,password})
+        response.status(201).json()
     };
 };
 
