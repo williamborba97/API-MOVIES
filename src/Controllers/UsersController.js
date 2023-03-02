@@ -10,20 +10,13 @@ class UsersControllers{
             throw new AppError("É necessario preencher todos os campos obrigatorios.");
         }
 
-        const hashedPassword = hash(password,8);
+        const hashedPassword = await hash(password,8);
          await knex("users").insert({
             name,
             email,
-            hashedPassword
+            password:hashedPassword
         });
 
-        
-
-        
-        
-
-        
-    
         response.status(201).json()
     };
 };
