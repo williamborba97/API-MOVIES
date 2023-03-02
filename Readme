@@ -1,0 +1,4 @@
+API movies é a API de uma aplicação para cadastrar
+filmes,series , desenhos etc.
+com cadastro de usuarios e suas verificaçoes e todas as requisiçoes HTTPs.
+O banco de dados utilizado é o sqlite e para criação de tabelas esta sendo utilizado o knex.
