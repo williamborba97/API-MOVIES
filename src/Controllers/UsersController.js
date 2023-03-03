@@ -19,6 +19,21 @@ class UsersControllers{
 
         response.status(201).json()
     };
+
+    async Update(request,response){
+        const {name,email,password,old_password} = request.body;
+        const{id} = request.params;
+
+       await knex("users").update({name,email,password}).where({id})
+        const user = knex("users").where({id})
+
+       if(!user){
+        throw new AppError("usuario nao encontrado")
+       }
+       
+       
+       return response.json()
+    }
 };
 
 module.exports = UsersControllers;

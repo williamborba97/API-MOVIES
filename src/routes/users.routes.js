@@ -9,5 +9,6 @@ const usersController = new UsersControllers();
 
 
 UsersRoutes.post("/",usersController.create);
+UsersRoutes.put("/:id",usersController.Update);
 
 module.exports = UsersRoutes;
